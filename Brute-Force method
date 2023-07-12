@@ -1,0 +1,19 @@
+class Solution {
+    public int maxArea(int[] height) {
+        ArrayList<Integer> water=new ArrayList<Integer>();
+        for(int num:height){
+            water.add(num);
+        }
+        int max=0;
+        for(int i=0;i<water.size();i++){
+            for(int j=i+1;j<water.size();j++){
+                int ht=Math.min(water.get(i),water.get(j));
+                
+                int wid=j-i;
+                int curr=ht*wid;
+                max=Math.max(max,curr);
+            }
+        }
+        return max;
+    }
+}
